@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPmvc5-Ado", "ASPmvc5-Ado\ASPmvc5-Ado.csproj", "{8EF72485-B5A7-483E-88DC-D27B3E1FCED6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EF72485-B5A7-483E-88DC-D27B3E1FCED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF72485-B5A7-483E-88DC-D27B3E1FCED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF72485-B5A7-483E-88DC-D27B3E1FCED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF72485-B5A7-483E-88DC-D27B3E1FCED6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36C52267-611C-423E-AAA5-DAF9B203FE29}
+	EndGlobalSection
+EndGlobal
