@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ASPmvc5_Ado.Models.EmpModel>
 
 <p>
-    @Html.ActionLink("Create New", "AddEmployee")
+    @Html.ActionLink("Create New", "AddEmployee", "", new { @class = "btn btn-danger" })
 </p>
 <table class="table">
     <tr>
@@ -17,7 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
 @foreach (var item in Model) {
