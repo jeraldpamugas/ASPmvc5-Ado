@@ -214,3 +214,44 @@ ASP.Net MVC5 using ADO
              );  
          }  
      } 
+
+
+-----------------------------------------------------------------------------------------------------------------------
+AUTH Store Proc:
+
+--LOGIN
+USE [ASPMVCADO]
+GO
+/****** Object:  StoredProcedure [dbo].[login]    Script Date: 7/30/2021 4:44:47 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--ALTER proc [dbo].[login]
+--as
+--select 2
+
+ALTER proc [dbo].[login]
+(
+@NameOrEmail varchar(50),
+@Password varchar(50)
+)
+as
+select count(*) from Users where Name = @NameOrEmail and Password = @Password or Email = @NameOrEmail and Password = @Password
+
+--REGISTER
+USE [ASPMVCADO]
+GO
+/****** Object:  StoredProcedure [dbo].[register]    Script Date: 7/30/2021 4:45:37 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[register]
+(
+@Name varchar(50),
+@Email varchar(50),
+@Password varchar(50)
+)
+as
+insert into Users values (@Name, @Email, @Password)
