@@ -44,53 +44,34 @@ namespace ASPmvc5_Ado.Repository
         }
 
         //To Register   
-        public string Login(UserModel obj)
+        public bool Login(UserModel obj)
         {
             connection();
-            List<EmpModel> EmpList = new List<EmpModel>();
-
-
-            SqlCommand com = new SqlCommand("GetEmployees", con);
+            SqlCommand com = new SqlCommand("login", con);
             com.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
 
-            con.Open();
-            da.Fill(dt);
-            con.Close();
-            //Bind EmpModel generic list using dataRow     
-            foreach (DataRow dr in dt.Rows)
+            com.Parameters.AddWithValue("@NameOrEmail", obj.Name);
+            com.Parameters.AddWithValue("@Password", obj.Password);
+
+            try
             {
-                EmpList.Add(
-                    new EmpModel
-                    {
-                        Empid = Convert.ToInt32(dr["Id"]),
-                        Name = Convert.ToString(dr["Name"]),
-                        City = Convert.ToString(dr["City"]),
-                        Address = Convert.ToString(dr["Address"])
-                    }
-                );
+                con.Open();
+                int retVal = (int)com.ExecuteScalar();
+                con.Close();
+                if (retVal == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            return "asd";
-            //SqlCommand com = new SqlCommand("login", con);
-            //com.CommandType = CommandType.StoredProcedure;
+            catch
+            {
+                return false;
+            }
 
-            //com.Parameters.AddWithValue("@NameOrEmail", obj.Name);
-            //com.Parameters.AddWithValue("@Password", obj.Password);
-
-            //con.Open();
-            //int i = com.ExecuteNonQuery();
-            //con.Close();
-            //return i.ToString();
-
-            //if (i >= 1)
-            //{
-            //return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
         }
     }
 }

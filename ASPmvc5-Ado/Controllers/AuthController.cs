@@ -25,24 +25,24 @@ namespace ASPmvc5_Ado.Controllers
                 if (ModelState.IsValid)
                 {
                     AuthRepository AuthRepo = new AuthRepository();
-
-                    return Json(AuthRepo.Login(User), JsonRequestBehavior.AllowGet);
-                    //if (AuthRepo.Login(User))
-                    //{
-                    //    //ViewBag.Message = "Login successfully";
-                    //    string output = "Login Success";
-                    //    return Json(output, JsonRequestBehavior.AllowGet);
-                    //}
+                    if (AuthRepo.Login(User))
+                    {
+                        Response.Redirect("Employee/GetAllEmpDetails");
+                        string output = "Login Success";
+                        return Json(output, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        string output = "Failed!";
+                        return Json(output, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 string output2 = "failed in try";
                 return Json(output2, JsonRequestBehavior.AllowGet);
-
-                return RedirectToAction("GetAllEmpDetails", "Employee");
             }
             catch (Exception e)
             {
                 return Json(e, JsonRequestBehavior.AllowGet);
-                return View();
             }
         }
 

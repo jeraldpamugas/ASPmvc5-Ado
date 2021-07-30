@@ -47,21 +47,19 @@
         $(document).ready(function () {
             $("#login").on("submit", function (e) {
                 e.preventDefault();
+
                 $.ajax({
-                        url: "Login",
-                        type: "POST",
-                        data: {
-                            "Name": $("#inputEmail").val(),
-                            "Email": $("#inputEmail").val(),
-                            "Password": $("#inputPassword").val(),
-                        }
-                    })
-                    .success(function(res) {
+                    url: 'Login',
+                    type: 'POST',
+                    data: {
+                        "Name": $("#inputEmail").val(),
+                        "Email": $("#inputEmail").val(),
+                        "Password": $("#inputPassword").val(),
+                    },
+                    success: function (res) {
                         alert(res);
-                    })
-                    .error(function () {
-                        alert("failed");
-                    })
+                    }
+                });
             })
         })
     </script>
