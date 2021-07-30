@@ -19,7 +19,7 @@
                     <div class="">
                         <h3 class="d-block text-center">Register</h3>
                     </div>
-                    <form id="login">
+                    <form id="registerForm">
                         <div class="mx-auto">
                             <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-12">
@@ -38,7 +38,7 @@
                                 <input type="password" class="form-control" id="inputPassword" placeholder="password">
                             </div>
                         </div>
-                        <a id="btnLogin" href="#" type="submit" class="btn btn-success mt-3 w-100">Register</a>
+                        <input id="btnRegister" href="#" type="submit" class="btn btn-success mt-3 w-100" value="Register">
                     </form>
                     <small>
                         <a href="/Auth/Login" type="button" class="mt-2 float-end">Login</a>
@@ -50,7 +50,9 @@
     @Scripts.Render("~/bundles/jquery")
     <script>
         $(document).ready(function () {
-            $("#login").on("submit", function () {
+            //alert(2);
+            $("#registerForm").submit(function (event) {
+                console.log($(this).serialize());
                 alert(2);
             })
         })
